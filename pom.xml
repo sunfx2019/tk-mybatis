@@ -195,14 +195,24 @@
     <profiles>
         <profile>
             <id>release</id>
+            <activation>    
+            <activeByDefault>true</activeByDefault>    
+            <jdk>1.8</jdk>    
+        </activation>    
+        <properties>    
+            <maven.compiler.source>1.8</maven.compiler.source>    
+            <maven.compiler.target>1.8</maven.compiler.target>    
+            <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>    
+        </properties>    
             <build>
                 <plugins>
                     <!--Compiler-->
                     <plugin>
                         <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.0</version>
                         <configuration>
-                            <source>1.6</source>
-                            <target>1.6</target>
+                            <source>1.8</source>
+                            <target>1.8</target>
                         </configuration>
                     </plugin>
                     <!-- Source -->
@@ -237,19 +247,19 @@
                         </executions>
                     </plugin>
                     <!-- GPG mvn clean deploy -P release -Dgpg.passphrase=YourPassphase-->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+<!--                     <plugin> -->
+<!--                         <groupId>org.apache.maven.plugins</groupId> -->
+<!--                         <artifactId>maven-gpg-plugin</artifactId> -->
+<!--                         <executions> -->
+<!--                             <execution> -->
+<!--                                 <id>sign-artifacts</id> -->
+<!--                                 <phase>verify</phase> -->
+<!--                                 <goals> -->
+<!--                                     <goal>sign</goal> -->
+<!--                                 </goals> -->
+<!--                             </execution> -->
+<!--                         </executions> -->
+<!--                     </plugin> -->
                 </plugins>
             </build>
             <distributionManagement>
